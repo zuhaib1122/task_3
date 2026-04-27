@@ -13,7 +13,7 @@ uploaded_file = st.sidebar.file_uploader("Upload your csv retail file", type=['c
 if uploaded_file is not None:
     df = pd.read_csv(uploaded_file)
 elif uploaded_file is none:
-    df = pd.read_csv("FMCG_2022_2024.csv")
+    df = pd.read_csv("task_3_data.csv                            ")
     
     # --- 1. BRAND SEGMENTATION LOGIC ---
     brand_stats = df.groupby('brand').agg({
