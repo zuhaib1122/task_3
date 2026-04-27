@@ -71,5 +71,4 @@ elif uploaded_file is none:
     # --- 5. CHANNEL ANALYSIS ---
     st.subheader("Sales Channel Performance")
     fig_chan = px.pie(df, values='revenue', names='channel', hole=0.4, title="Revenue by Channel")
-            st.plotly_chart(fig_chan)
-
+    st.plotly_chart(fig_chan)
