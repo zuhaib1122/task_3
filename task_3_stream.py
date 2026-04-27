@@ -8,10 +8,12 @@ st.set_page_config(page_title="Advanced Retail Analytics", layout="wide")
 st.title("🚀 Enterprise Retail Command Center")
 
 # --- DATA LOADING ---
-uploaded_file = st.sidebar.file_uploader("C:/Users/Hafiz Zuhaib Idrees/Documents/python_work/FMCG_2022_2024.csv", type=['csv'])
+uploaded_file = st.sidebar.file_uploader("Upload your csv retail file", type=['csv'])
 
 if uploaded_file is not None:
     df = pd.read_csv(uploaded_file)
+elif uploaded_file is none:
+    df = pd.read_csv("FMCG_2022_2024.csv")
     
     # --- 1. BRAND SEGMENTATION LOGIC ---
     brand_stats = df.groupby('brand').agg({
@@ -69,7 +71,5 @@ if uploaded_file is not None:
     # --- 5. CHANNEL ANALYSIS ---
     st.subheader("Sales Channel Performance")
     fig_chan = px.pie(df, values='revenue', names='channel', hole=0.4, title="Revenue by Channel")
-    st.plotly_chart(fig_chan)
+                            st.plotly_chart(fig_chan)
 
-else:
-    st.info("Waiting for dataset upload...")
