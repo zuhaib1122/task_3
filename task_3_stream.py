@@ -16,7 +16,7 @@ with st.sidebar.container(border=True):
 if uploaded_file is not None:
     df = pd.read_csv(uploaded_file)
 elif uploaded_file is None:
-    df=pd.read_csv("C:/Users/Hafiz Zuhaib Idrees/Documents/python_work/task_3_data.csv")
+    df=pd.read_csv("task_3_data.csv")
     
     # --- 1. BRAND SEGMENTATION LOGIC ---
     brand_stats = df.groupby('brand').agg({
