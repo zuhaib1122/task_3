@@ -5,15 +5,18 @@ import plotly.express as px
 
 st.set_page_config(page_title="Advanced Retail Analytics", layout="wide")
 
-st.title("🚀 Enterprise Retail Command Center")
+st.title("Retail Analytics & Inventory Optimization Hub")
 
 # --- DATA LOADING ---
-uploaded_file = st.sidebar.file_uploader("Upload your csv retail file", type=['csv'])
+with st.sidebar.container(border=True):
+    uploaded_file = st.file_uploader("Upload the csv file", type=['csv'])
+    st.markdown('### **NOTE:**')
+    st.info("Upload your own company dataset to customize this dashboard for your organization.")
 
 if uploaded_file is not None:
     df = pd.read_csv(uploaded_file)
 elif uploaded_file is None:
-    df = pd.read_csv("task_3_data.csv")
+    df=pd.read_csv("C:/Users/Hafiz Zuhaib Idrees/Documents/python_work/task_3_data.csv")
     
     # --- 1. BRAND SEGMENTATION LOGIC ---
     brand_stats = df.groupby('brand').agg({
@@ -72,3 +75,4 @@ elif uploaded_file is None:
     st.subheader("Sales Channel Performance")
     fig_chan = px.pie(df, values='revenue', names='channel', hole=0.4, title="Revenue by Channel")
     st.plotly_chart(fig_chan)
+
